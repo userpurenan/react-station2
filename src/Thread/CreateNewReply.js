@@ -3,6 +3,7 @@ import './css/CreateNewReply.css';
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import  axios  from "axios";
+import { url } from '../const';
 
 export const CreateNewReply = (onUpdateReplies) => {
 
@@ -11,7 +12,7 @@ export const CreateNewReply = (onUpdateReplies) => {
 
   
     const NewReply = () => {
-      axios.post(`https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${threadId}/posts`,
+      axios.post(`${url}/threads/${threadId}/posts`,
         {
           post: threadReply
         }
