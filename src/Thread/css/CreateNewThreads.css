@@ -1,0 +1,28 @@
+.CreateThreads{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.TitleThreads{
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    display: block;
+    margin: 50px auto 20px; /* 上「50px」　左右「auto」 下「20px」 */
+}
+
+.TitleThreads::placeholder{
+    font-size: 20px;
+}
+
+.CreateButton{
+    background-color: darkcyan;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 54%;
+}

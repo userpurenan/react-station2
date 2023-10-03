@@ -1,0 +1,52 @@
+.header{
+    background-color: darkcyan;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_title{
+    height: 100px;
+    font-size: 50px;
+}
+
+.container{
+    display: flex;
+    flex-direction:column;
+}
+
+.header_a{
+    color: #fff;
+    margin: auto 30px;
+}
+
+.header_a:hover{
+    color: black;
+}
+
+.thread_title{
+    text-align: center;
+}
+
+.li {
+    font-weight: bold;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link{
+    border: solid;
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+    border-radius: 5px;
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+
+.ul {
+    list-style-type: none; /* リストスタイルを無効にする */
+}
