@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 import { CreateNewReply } from './CreateNewReply';
+import { url } from '../const';
 
 export const ReplyThreads = () => {
 
@@ -17,7 +18,7 @@ export const ReplyThreads = () => {
     
     //第二引数にセットしたthreadIdが変化するたびに実行。（「/thread/1」が「/thread/2」になった時など）
     useEffect(() => {
-        axios.get(`https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${threadId}/posts`)
+        axios.get(`${url}/threads/${threadId}/posts`)
         .then((response) => {
           console.log(response.data); //デバック用
           setReplyThread(response.data.posts); //スレッド内の投稿にAPIから取ってきた一覧をセット
