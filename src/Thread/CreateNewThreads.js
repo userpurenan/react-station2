@@ -4,6 +4,7 @@ import { ThreadListHeader } from './ThreadListHeader';
 import { useNavigate } from "react-router-dom"; //react-router-domのversion6は「useHistory」ではなく「useNavigate」らしい
 import React, { useState } from "react";
 import axios from "axios";
+import { url } from '../const';
 
 export const CreateNewThreads = () => {
 
@@ -11,12 +12,12 @@ export const CreateNewThreads = () => {
   const navigate = useNavigate(); // useNavigateフックを使用
 
   const handleCreateThread = () => {
-    axios.post('https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads',
+    axios.post(`${url}/threads`,
       {
         title: threadTitle
       }
     )
-    .then(response => {
+    .then(() => {
         navigate("/thread"); // スレッド作成リクエストが成功したらスレッド一覧にリダイレクト
       }
     )
