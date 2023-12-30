@@ -1,43 +1,34 @@
 import './css/CreateNewReply.css';
 
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import  axios  from "axios";
 import { url } from '../const';
 
 export const CreateNewReply = (onUpdateReplies) => {
 
-    const [threadReply, setThreadReply] = useState('');
     const { threadId } = useParams();
 
-  
-    const NewReply = () => {
-      axios.post(`${url}/threads/${threadId}/posts`,
-        {
-          post: threadReply
-        }
-      )
-      .then(response => {
-            //console.log(response);
-            //window.location.reload(); // 返信のリクエストが成功したらリロードすして、投稿をブラウザ上で反映させる
-            onUpdateReplies(response.data); // 新しい投稿を親コンポーネントに渡す
-      })       
-      .catch(error => {
-        console.error("スレッド作成エラー:", error);
-      });
+    const NewReply = (event) => {
+      console.log(event);
+      const threadReply = event;
+      axios.post(`${url}/threads/${threadId}/posts`, { post: threadReply })
+           .then(response => {
+              onUpdateReplies(response.data); // 新しい投稿を親コンポーネントに渡す
+           })       
+           .catch(error => {
+              console.error("スレッド作成エラー:", error);
+           });
     };
   
-
     return(
         <div className='AAA'>
-          <form>
+          <form onSubmit={NewReply}>
             <textarea
-            value={threadReply}
-            onChange={(e) => setThreadReply(e.target.value)}
-            placeholder='コメントを入力'
-            className='ThreadsReply'
+              placeholder='コメントを入力'
+              className='ThreadsReply'
             />
-            <button className='CreateReply' onClick={NewReply}>投稿</button>
+            <button type='submit' className='CreateReply'>投稿</button>
           </form>
         </div>
     );

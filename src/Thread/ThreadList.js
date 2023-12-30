@@ -11,7 +11,6 @@ export const ThreadList = () => {
   useEffect(() => {
     axios.get(`${url}/threads`)
       .then((response) => {
-        //console.log(response);
         SetThreads(response.data); //スレッドにAPIから取ってきた値をセット
       })
       .catch ((error) => {
